@@ -328,7 +328,7 @@ WAP to input five values in ascending order and find the missing values
 
 Missing
 2   3    4     6     7   10   11
-*/
+
 
 
 #include<stdio.h>
@@ -359,10 +359,10 @@ for(int i=0;i<size;i++){
 
 return 0;
 }
-/*
+
 -------------------------------------------------------------------------------------------------
 Selecting short
-
+*/
 #include<stdio.h>
 int main(){
 int size;
@@ -382,8 +382,8 @@ for(int i=0;i<size;i++)
 for(int i=0;i<size-1;i++){
 
 int mind=i;
-for(int j=a[i+1];j<size;j++){
-    if(a[mind]>a[j]){
+for(int j=i+1;j<size;j++){
+    if(a[j]<a[mind]){
         mind=j;
     }
 }
@@ -413,8 +413,55 @@ return 0;
 
 
 
+/*
+#include <stdio.h>
 
+int main() {
+    int size;
+    printf("Enter the size of array: ");
+    scanf("%d", &size);
+
+    if (size <= 0) {
+        printf("Array size must be greater than 0.\n");
+        return 1; // Return an error code
+    }
+
+    int a[size];
+
+    printf("Enter the elements in the array:\n");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Before sorting:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", a[i]);
+    }
+
+    // Selection sort
+    for (int i = 0; i < size - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < size; j++) {
+            if (a[j] < a[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex != i) {
+            int temp = a[i];
+            a[i] = a[minIndex];
+            a[minIndex] = temp;
+        }
+    }
+
+    printf("\nAfter sorting:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
 */
+
 
 
 

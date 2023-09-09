@@ -180,45 +180,61 @@ return 0;
 write a program to find second highest element in array
 */
 
-#include<stdio.h>
-int main(){
-int size ;
-printf("Enter the size of array:");
-scanf("%d",&size);
-int a[size];
-printf("Enter the elemnt in array:");
-for(int i=0;i<size;i++){
-scanf("%d",&a[i]);
-}
-for(int i=0;i<size;i++){
-    for(int j=i+1;j<size;j++){
+#include <stdio.h>
+int main()
+{
+    int size;
+    printf("Enter the size of array:");
+    scanf("%d", &size);
+    int a[size];
+    printf("Enter the elemnt in array:");
+    for (int i = 0; i < size; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    for (int i = 0; i < size-1; i++)
+    {
+        int point=i;
+        for (int j = i + 1; j < size; j++)
+        {
 
-        if(a[i]>a[j]){
-            int temp=a[i];
-            a[i]=a[j];
-            a[j]=temp;
+            if (a[j] < a[i])
+            {
+                point=j;
+            }
+        }if(point!=i){
+            int temp = a[i];
+                a[i] = a[point];
+                a[point] = temp;
+    }
+    }
+    printf("After shoriting:");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    int newS=1;
+    for (int i = 1; i < size; i++)
+    {
+
+        if (a[i] != a[i - 1])
+        {
+           a[newS]=a[i];
+             newS++;
+
         }
     }
+    printf("\nAfter dublicate element :");
+    for (int i = 0; i <newS; i++)
+    {
+        printf("%d ", a[i]);
+    }
+    newS=newS-2;
+     printf("\nsecond highest element is :%d", a[newS]);
+
+    return 0;
 }
-printf("After shoriting:");
-for(int i=0;i<size;i++){
-    printf("%d ",a[i]);
-}
-int point;
-for(int i=0;i<size;i++){
 
-
-        if(a[i]<a[i+1]){
-            point=i;
-        }
-}
-point--;
-printf("\nsecond highest element is :%d",a[point]);
-
-
-
-return 0;
-}
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 //write a c program to find a pair with given sum in the array
@@ -263,36 +279,58 @@ for(int i=0;i<size-1;i++){
 return 0;
 }
 
+
+#include<stdio.h>
+
+int main() {
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    if (size <= 0) {
+        printf("Array size must be greater than 0.\n");
+        return 1; // Return an error code
+    }
+
+    int a[size];
+
+    printf("Enter the elements in the array: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &a[i]);
+    }
+
+    // Sort the array using Bubble Sort
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("After sorting: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", a[i]);
+    }
+
+    // Remove duplicate elements
+    int newSize = 1; // New size of the array (at least one element)
+    for (int i = 1; i < size; i++) {
+        if (a[i] != a[i - 1]) {
+            a[newSize] = a[i];
+            newSize++;
+        }
+    }
+
+    printf("\nAfter removing duplicate elements: ");
+    for (int i = 0; i < newSize; i++) {
+        printf("%d ", a[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
