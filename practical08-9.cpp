@@ -122,6 +122,7 @@ return 0;
 -------------------------------------------------------------------------------------------------------------------------------------------
 write a c prgram to remove index in specific index
 
+*/
 #include<stdio.h>
 int main(){
 int size,index;
@@ -238,7 +239,7 @@ int main()
 }
 ------------------------------------------------------------------------------------------------------------------------------
 //write a c program to add the element in specific index
-&*/
+
 #include<stdio.h>
 int main(){
 
@@ -358,7 +359,7 @@ return 0;
 
 
 
-
+*/
 
 
 
