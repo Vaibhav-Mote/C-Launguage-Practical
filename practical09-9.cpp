@@ -1,5 +1,5 @@
 /*
-//witite a c program to short array in asending  order
+//witite a c program to short array in asending  or decending order
 #include<stdio.h>
 int main(){
 
@@ -11,33 +11,33 @@ printf("Enter the element in array:");
 for(int i=0;i<size;i++){
     scanf("%d",&a[i]);
 }
-int point;
-int temp;
-for(int i=0;i<size;i++){
+int point1;
+int temp1;
+for(int i=0;i<size-1;i++){
+
     for(int j=i+1;j<size;j++){
         if(a[i]>a[j]){
-            point=j;
+            temp1=a[i];
+    a[i]=a[j];
+    a[j]=temp1;
         }
     }
-    temp=a[i];
-    a[i]=a[point];
-    a[point]=temp;
 
 }
 printf("\nAfter asending array is:");
 for(int i=0;i<size;i++){
     printf("%d ",a[i]);
 }
-
-for(int i=0;i<size;i++){
+int point2,temp2;
+for(int i=0;i<size-1;i++){
+        point2=i;
     for(int j=i+1;j<size;j++){
         if(a[i]<a[j]){
-            point=j;
+    temp2=a[i];
+    a[i]=a[j];
+    a[j]=temp2;
         }
     }
-    temp=a[i];
-    a[i]=a[point];
-    a[point]=temp;
 
 }
 printf("\nAfter desending array is:");
@@ -136,6 +136,7 @@ for(int i=0;i<size;i++)
 return 0;
 
 }
+/*
 ----------------------------------------------------------------------------------------------------------------------------------------
 //write a c program to check the given array is pelindrom or not
 
@@ -179,6 +180,7 @@ return 0;
 
 write a program to find second highest element in array
 */
+
 
 #include <stdio.h>
 int main()
@@ -280,57 +282,4 @@ return 0;
 }
 
 
-#include<stdio.h>
-
-int main() {
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d", &size);
-
-    if (size <= 0) {
-        printf("Array size must be greater than 0.\n");
-        return 1; // Return an error code
-    }
-
-    int a[size];
-
-    printf("Enter the elements in the array: ");
-    for (int i = 0; i < size; i++) {
-        scanf("%d", &a[i]);
-    }
-
-    // Sort the array using Bubble Sort
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
-            if (a[j] > a[j + 1]) {
-                int temp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = temp;
-            }
-        }
-    }
-
-    printf("After sorting: ");
-    for (int i = 0; i < size; i++) {
-        printf("%d ", a[i]);
-    }
-
-    // Remove duplicate elements
-    int newSize = 1; // New size of the array (at least one element)
-    for (int i = 1; i < size; i++) {
-        if (a[i] != a[i - 1]) {
-            a[newSize] = a[i];
-            newSize++;
-        }
-    }
-
-    printf("\nAfter removing duplicate elements: ");
-    for (int i = 0; i < newSize; i++) {
-        printf("%d ", a[i]);
-    }
-
-    printf("\n");
-
-    return 0;
-}
 */
