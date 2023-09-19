@@ -1,4 +1,4 @@
-/*
+
 //witite a c program to short array in asending  or decending order
 #include<stdio.h>
 int main(){
@@ -48,7 +48,7 @@ for(int i=0;i<size;i++){
 
 return 0;
 }
-/*
+
 ---------------------------------------------------------------------------------------------------
 /witite a c program to short array in desending  order
 
@@ -136,13 +136,12 @@ for(int i=0;i<size;i++)
 return 0;
 
 }
-/*
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 //write a c program to check the given array is pelindrom or not
 
 #include<stdio.h>
 int main(){
-
 int size ;
 printf("Enter the size of array:");
 scanf("%d",&size);
@@ -171,9 +170,6 @@ if(flag){
 else{
     printf("array is not pelindrom");
 }
-
-
-
 return 0;
 }
 -------------------------------------------------------------------------------------------------------------------------------------
@@ -189,7 +185,7 @@ int main()
     printf("Enter the size of array:");
     scanf("%d", &size);
     int a[size];
-    printf("Enter the elemnt in array:");
+    printf("Enter the element in array:");
     for (int i = 0; i < size; i++)
     {
         scanf("%d", &a[i]);
@@ -199,7 +195,6 @@ int main()
         int point=i;
         for (int j = i + 1; j < size; j++)
         {
-
             if (a[j] < a[i])
             {
                 point=j;
@@ -237,11 +232,9 @@ int main()
     return 0;
 }
 
-/*
+
 --------------------------------------------------------------------------------------------------------------------------------------
 //write a c program to find a pair with given sum in the array
-
-
 
 #include<stdio.h>
 int main(){
@@ -269,13 +262,8 @@ for(int i=0;i<size-1;i++){
             if(flag){
                 printf("The sum of two element is %d + %d = %d",a[ipoint],a[jpoint],sum);
             }
-
-
-
-
 }
 }
-
 
 
 return 0;

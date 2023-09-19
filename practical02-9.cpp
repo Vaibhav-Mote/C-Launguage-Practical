@@ -379,19 +379,20 @@ for(int i=0;i<size;i++)
     printf("\t%d",a[i]);
 }
 
-for(int i=0;i<size-1;i++){
+for(int i=0;i<size-1;i++)
+{
 
-int mind=i;
-for(int j=i+1;j<size;j++){
-    if(a[j]<a[mind]){
-        mind=j;
+    int mind=i;
+    for(int j=i+1;j<size;j++){
+        if(a[j]<a[mind]){
+            mind=j;
+        }
     }
-}
-if(mind!=i){
-    int temp=a[i];
-    a[i]=a[mind];
-    a[mind]=temp;
-}
+        if(mind!=i){
+        int temp=a[i];
+        a[i]=a[mind];
+        a[mind]=temp;
+        }
 }
 printf("\nAfter shorting  :");
 for(int i=0;i<size;i++)

@@ -82,7 +82,7 @@ return 0;
 write a c program to display next grater element in given unsoted array .element for which no greater element exist. consider next
  element as -1
 
-
+*/
 #include<stdio.h>
 int main(){
 
@@ -107,7 +107,7 @@ return 0;
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 //write a c program to count all distinct pairs for a specific difference
-*/
+
 #include<stdio.h>
 int main(){
 int a[5],dif;
@@ -138,7 +138,7 @@ return 0;
 }
 
 
-
+*/
 
 
 
