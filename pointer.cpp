@@ -73,34 +73,100 @@ return 0;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 Malloc function
-*/
+
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
 
-void *ptr;
-ptr=(int*)malloc(sizeof(int)*10);
-for(int i=0;i<10;i++){
-    scanf("%d",(int*)ptr[i]);
+int *ptr;
+int size;
+printf("How much memory u required:");
+scanf("%d",&size);
+ptr=(int*)malloc(sizeof(int)*size);
+for(int i=0;i<size;i++){
+    scanf("%d",&ptr[i]);
 }
-for(int i=0;i<10;i++){
-    printf("%u---->%d\n",ptr[i],*ptr[i])
+for(int i=0;i<size;i++){
+            printf("%d\n",ptr[i]);
 }
 
 
+return 0;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+Example of realloc function
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+int *ptr,nthali,rmanp,ethali,emap,osthali,rthali;
+printf("Enter the Number of thali:");
+scanf("%d",&nthali);
+rmanp=nthali/10;
+ptr=(int*)malloc(sizeof(int)*rmanp);
+printf("Required manpower ko bhejo :\n");
+for(int i=0;i<rmanp;i++){
+    scanf("%d",&ptr[i]);
+}
+printf("\nEnter On the spot thali: ");
+scanf("%d",&osthali);
+ethali=osthali-nthali;
+emap=ethali/10;
+ptr=(int*)realloc(ptr,sizeof(int)*emap);
+printf("Extrea manpower ko bhejo:");
+for(int i=rmanp;i<(rmanp+emap);i++){
+    scanf("%d",&ptr[i]);
+}
+printf("Displat all employree :");
+for(int i=0;i<(rmanp+emap);i++){
+    printf("%d ",ptr[i]);
+}
+return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------
+Example of calloc function
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+int  *ptr,size;
+printf("Enter the size of memory:");
+scanf("%d",&size);
+ptr=(int*)calloc(sizeof(int),size);
+printf("Enter the value :");
+for(int i=0;i<size;i++){
+    scanf("%d",&ptr[i]);
+}
+printf("Display all values:");
+for(int i=0;i<size;i++){
+    printf("%d\t",ptr[i]);
+}
 
 
 
 return 0;
 }
 
+---------------------------------------------------------------------------------------------------------------------------------
+Example of free function
+*/
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+
+int *ptr;
+ptr=(int*)malloc(sizeof(int));
+*ptr=200;
+printf("value on ptr:%d\n",*ptr);
+printf("address of ptr:%d\n",ptr);
+free(ptr);
+ptr=NULL;
+printf("address of ptr:%d\n",ptr);
 
 
-
-
-
-
-
+return 0;
+}
 
 
 
