@@ -792,6 +792,7 @@ frequence(a,size);
 return 0;
 }
 
+/*
 --------------------------------------------------------------------------------------------------------------------------------------------
 26.Write a C program to enter a number and print it in words.
 #include<stdio.h>
@@ -1255,74 +1256,37 @@ void ArmostrongNo(int no2)
 38.Write a C program to print all Armstrong numbers between 1 to n
 
 #include<stdio.h>
-int i=1,count=0,j,p,m=1,sum=0,k=1,fact=1;
+#include<math.h>
+int m=1,i=m,j=m,count=0,sum=0,fact;
 void AllArmstrongNo(int no)
 {
-    if(count==0)
-    {
-        m=j;;
-        m=p;
-        m=i;
-
-    }
     if(m<=no)
     {
         if(i!=0)
-        {
+        {    i=i/10;
             count++;
-            i=i/10;
             AllArmstrongNo(no);     //153
 
         }
-        else
-        {
             if(j!=0)
             {
-                int rem=j%10;
-                if(k<=count)
-                {
-                    fact=fact*rem;
-                    k++;
-                    AllArmstrongNo(no);
-
-                }
-                else
-                {
-                    sum=sum+fact;
+                    int rem=j%10;
                     j=j/10;
-                    count=1;
-                    k=1;
+                    fact=pow(rem,count);
+                    sum=sum+fact;
                     AllArmstrongNo(no);
-
-
-                }
-
-
             }
-            else
-            {
-                if(p==sum)
+
+                if(m==sum)
                 {
-                    printf("%d\t",p);
+                    printf("%d\t",m);
                 }
                 m++;
-                j = m;
-                i = m;
+                i=m;
+                j=m;
                 count = 0;
-                fact = 1;
-                sum = 0;
-                k = 1;
+               sum = 0;
                 AllArmstrongNo(no);
-
-
-
-            }
-
-
-
-
-        }
-
     }
 
 
@@ -1339,110 +1303,118 @@ int main()
     return 0;
 }
 
-//
-//
-//#include <stdio.h>
-//#include <math.h>
-//
-//int i = 1, count = 0, j, p, m = 0, sum = 0, k = 1, fact = 1;
-//
-//void AllArmstrongNo(int no) {
-//    if (m <= no) {
-//        if (i != 0) {
-//            count++;
-//            i = i / 10;
-//            AllArmstrongNo(no);
-//        } else {
-//            if (j != 0) {
-//                int rem = j % 10;
-//                if (k <= count) {
-//                    fact = fact * rem;
-//                    k++;
-//                    AllArmstrongNo(no);
-//                } else {
-//                    sum = sum + fact;
-//                    j = j / 10;
-//                    count = 1;
-//                    k = 1;
-//                    AllArmstrongNo(no);
-//                }
-//            } else {
-//                if (p == sum) {
-//                    printf("%d\t", p);
-//                }
-//                m++;
-//                j = m;
-//                i = m;
-//                count = 0;
-//                fact = 1;
-//                sum = 0;
-//                k = 1;
-//                AllArmstrongNo(no);
-//            }
-//        }
-//    }
-//}
-//
-//int main() {
-//    int no;
-//    printf("Enter the number up to find all Armstrong numbers: ");
-//    scanf("%d", &no);
-//    printf("Armstrong numbers up to %d are:\n", no);
-//    AllArmstrongNo(no);
-//    return 0;
-//}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+---------------------------------------------------------------------------------------------------------
+39.Write a C program to check whether a number is Perfect number or not.
+
+#include<stdio.h>
+int i=1,sum=0;
+
+int main(){
+   void PerfectNo(int);
+int no;
+printf("Enter the no:");
+scanf("%d",&no);
+
+PerfectNo(no);
 
 
+return 0;
+}
 
-
+void PerfectNo (int no){
+if(i<=no/2){
+    if(no%i==0){
+            sum=sum+i;
+    }
+    i++;
+    PerfectNo(no);
+}else{
+if(sum==no){
+    printf("Perfect no");
+}
+else{
+    printf("not perfect");
+}
+}
+}
 /*
+--------------------------------------------------------------------------------------------------------
+40.Write a C program to print all Perfect numbers between 1 to n.
+
+#include<stdio.h>
+int i=1,sum=0,m,j=1;
+void allPerfectNo(int no){
+if(i<=no){
+        if(j<=i/2){
+            if(i%j==0){
+                sum=sum+j;
+            }
+            j++;
+            allPerfectNo(no);
+        }
+        else{
+            if(sum==i){
+                printf("%d\t",i);
+            }
+            i++;
+            j=1;
+            sum=0;
+        allPerfectNo(no);
+        }
+}
+
+}
+int main(){
+int no;
+printf("Enter the no:");
+scanf("%d",&no);
+allPerfectNo(no);
+
+
+return 0;
+}
+
+
 --------------------------------------------------------------------------------------------------------------------------------
 41.Write a C program to check whether a number is Strong number or not
-*/
 #include<stdio.h>
-int originalNo,sum=0;
+int originalNo,sum=0,i=1,fact=1;
 void strong(int no){
     if(sum==0){
         originalNo=no;
     }
-if(no>0){
+if(no!=0){
     int rem=no%10;
-    int fact=1;
-    for(int i=1;i<=rem;i++){
-        fact=fact*i;
+    if(i<=rem){
+            fact=fact*i;
+            i++;
+           strong(no);
 
-    }
 
-    sum=sum+fact;
-    no=no/10;
-    strong(no);
-}
-else{
-    if(sum==originalNo){
-        printf("The given no is Strong number");
     }
     else{
-        printf("The given no is not Strong number");
+
+        sum=sum+fact;
+        no=no/10;
+        //printf("\nfact:%d\n",sum);
+        fact=1;
+        i=1;
+        strong(no);
+
     }
+
 }
+else{
+printf("\nfact:%d\n",sum);
+    if(sum==originalNo){
+        printf("Strong number");
+    }
+    else{
+        printf("not Strong number");
+    }
 
 
+}
 
 }
 
@@ -1456,26 +1428,99 @@ strong(no);
 return 0;
 
 }
+----------------------------------------------------------------------------------------------------
+42.Write a C program to print all Strong numbers between 1 to n
+
+
+    #include<stdio.h>
+
+
+    int main(){
+    int no;
+    printf("Enter the no:");
+    scanf("%d",&no);
+    void allStrongNo(int);
+    allStrongNo(no);
+
+    return 0;
+
+    }
+     int i=1,j=1,k=1,fact=1,sum=0;
+
+    void allStrongNo(int no){
+        if(i<=no){
+
+            if(j!=0){
+                int rem=j%10;
+                if(k<=rem){
+                    fact=fact*k;
+                    k++;
+                    allStrongNo(no);
+                }
+                else{
+                sum=sum+fact;
+                j=j/10;
+                k=1;
+                fact=1;
+                allStrongNo(no);
+
+                }
+
+            }
+            else{
+                if(sum==i){
+                    printf("%d\t",i);
+                }
+                i++;
+                j=i;
+                sum=0;
+                fact=1;
+                k=1;
+                allStrongNo(no);
+
+            }
+
+        }
+
+
+    }
+/*
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+43.Write a C program to print Fibonacci series up to n terms
+*
+
+#include<stdio.h>
+int a=0,b=1,c,i;
+void fibonachis(int no){
+
+    if(c<=(no-3)){
+    c=a+b;
+    printf("%d\t",c);
+    a=b;
+    b=c;
+    fibonachis(no);
+
+    }
+
+
+}
+int main(){
+int no;
+printf("Enter the no:");
+scanf("%d",&no);
+printf("%d\t",0);
+printf("%d\t",1);
+
+fibonachis(no);
+
+
+return 0;
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 

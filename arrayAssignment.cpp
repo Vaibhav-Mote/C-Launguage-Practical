@@ -80,9 +80,9 @@ printf("min=%d max=%d",min,max);
 
 return 0;
 }
-
+/*
 --------------------------------------------------------------------------------------------------------------------------
-  Q4   write a c program to arrange the element in asseding order
+  Q4   write a c program to arrange the element in ascending order
 
 
 #include<stdio.h>
@@ -111,7 +111,7 @@ for(int i=0;i<5;i++){
 
 return 0;}
 
-
+/*
 --------------------------------------------------------------------------------------------------------------------------------------------
 Q 5: find missing element in shorted array
 
@@ -236,21 +236,23 @@ for(int i=0;i<n;i++){
 return 0;
 }
 
+/*
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 Q:7 find the second largest element in array
 
-
 #include<stdio.h>
 int main(){
-int a[5];
+    int len=5;
+int a[len];
+
 printf("Enter the element :");
     for(int i=0;i<5;i++){
 
         scanf("%d",&a[i]);
     }
 
-    for(int i=0;i<4;i++){
+    for(int i=0;i<5;i++){
             int mind=i;
        for(int j=i+1;j<5;j++){
         if(a[j]<a[i]){
@@ -269,22 +271,24 @@ printf("Enter the element :");
         printf("%d ",a[i]);
     }
     int m=1;
-    for(int i=1;i<5;i++){
-        if(a[i]!=a[i-1]){
-            a[m]=a[i];
+    for(int i=0;i<4;i++){
+        if(a[i]!=a[i+1]){
+            a[m]=a[i+1];
             m++;
         }
     }
+
+
  printf("\nAfter dublicate:");
     for(int i=0;i<m;i++){
         printf("%d ",a[i]);
     }
 
-m=m-2;
-    printf("\nhigest seound element is:%d",a[m]);
+//int m=m-2;
+//    printf("\nhigest seound element is:%d",a[m]);
 return 0;
 }
-
+/*
 -------------------------------------------------------------------------------------------------------------------------------------
 
 WAP find the pair with given sum in the array
@@ -303,7 +307,7 @@ int main()
     scanf("%d",&sum);
     for(int i=0; i<5; i++)
         for(int j=i+1; j<5; j++)
-        {
+        {  flag=0;
             if(a[i]+a[j]==sum)
             {
                 ipoint=i;
@@ -311,14 +315,16 @@ int main()
                 flag=1;
 
             }
-        }
             if(flag)
             {
-                printf("%d and %d =%d",a[ipoint],a[jpoint],sum);
+                printf("%d and %d =%d\n",a[ipoint],a[jpoint],sum);
             }
+
+        }
 
 return 0;
 }
+/*
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 WAP find the majority element in array
@@ -426,20 +432,21 @@ return 0;
 /*
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
- Q 13:To find the floor and ceiling of the number  0 to 10 from shorted array
+ Q 13: To find the floor and ceiling of the number  0 to 10 from shorted array
+
 
 #include<stdio.h>
 int main(){
 
-    int a[5],element;
+    int a[11],element;
     int leng=sizeof(a)/sizeof(a[0]);
     printf("Enter the element in array:");
-    for(int i=0;i<leng;i++){
+    for(int i=0;i<leng-1;i++){
         scanf("%d",&a[i]);
     }
 
 int k=0;
-    for(int i=0;i<10;i++){
+    for(int i=0;i<=10;i++){
         if(a[i]==k){
             printf("%d floor is:%d\n",i,a[i]);             //1 2 3 4 5 6                                //=================================================
              printf("%d ceiling is:%d\n",i,a[i]);
@@ -539,7 +546,6 @@ return 0;
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
-
 int size;
 printf("Enter the size :");
 scanf("%d",&size);
@@ -547,11 +553,8 @@ int a[size];
 printf("Enter the element in :");
 for(int i=0;i<size;i++){
     scanf("%d",&a[i]);
-
 }
-
 //find closest sum to zero
-
 int sum=a[0]+a[1];
 int ipoint ,jpoint,flag=0,currentsum;
 for(int i=0;i<size-1;i++){
@@ -563,9 +566,7 @@ for(int i=0;i<size-1;i++){
             jpoint=j;
             flag=1;
         }
-
     }
-
 }
 if(flag){
 printf("\nSum of two element closest to zero is:%d + %d = %d",a[ipoint],a[jpoint],sum );
@@ -854,6 +855,49 @@ int m;
 
 
 }
+
+
+or
+
+#include<stdio.h>
+#include<math.h>
+int main(){
+int size,ip,jp;
+    printf("Enter the size :");
+    scanf("%d",&size);
+    int a[size];
+    printf("Enter the element in :");     //  4 3 5 6 3 2
+    for(int i=0; i<size; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+
+    int max=a[0]-a[1];
+    for(int i=0;i<size;i++){
+
+        for(int j=0;j<size;j++){
+            if(abs(a[i]-a[j]>max)){
+                max=abs(a[i]-a[j]);
+             ip=i;
+             jp=j;
+            }
+
+        }
+
+
+    }
+
+
+printf("%d and %d =%d",a[ip],a[jp],max);
+
+
+return 0;
+
+}
+
+
+
+
 /*
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Q:23 WAP to count all distinct pairs for a specific difference
@@ -976,6 +1020,44 @@ printf("\nThe maximum repeating no is :%d is %d times",a[istore],max);
  return 0;
 }
 
+OR
+#include<stdio.h>
+int main(){
+int size;
+printf("Enter the size:");
+scanf("%d",&size);
+int arr[size];
+printf("Enter the element in array:");//123456
+for(int i=0;i<size;i++){
+    scanf("%d",&arr[i]);
+}
+int max=1;
+int temp=0,ip;
+for(int i=0;i<size;i++){
+        max=1;
+    for(int j=i+1;j<size;j++){    //5 5 5 3 3
+        if(arr[i]==arr[j]){
+            max++;
+            //ip=i;
+
+        }
+
+    }
+
+    if(max>temp){
+        temp=max;
+        ip=i;
+    }
+}
+printf("max r no:%d times %d",arr[ip],temp);
+
+return 0;
+}
+
+
+
+
+
 /*
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q :26 WAP to Print all possible combination of r element in a given array
@@ -983,7 +1065,9 @@ Q :26 WAP to Print all possible combination of r element in a given array
 
 #include<stdio.h>
 int main(){
-int size=5;
+int size;
+printf("Enter the size:");
+scanf("%d",&size);
 int a[size];
 printf("Enter the element in array is:");      //1 2 3 4 5 6 7
 for(int i=0;i<size;i++){
@@ -1058,7 +1142,6 @@ Q:29 rearrange the positive and negative numbers alternatively in given array
 ----------------------------------------------------------------------------------------------------------------------------------
 Q:30 write a c program to find a maximum for each and every contiguous subarray of size k
 
-
 #include<stdio.h>
 int main(){
 int size,k;
@@ -1072,7 +1155,7 @@ for(int i=0 ;i<size;i++){
 printf("Enter the size of subarray to find in given array:");      //1 2 3 4 5 6 7 8
 scanf("%d",&k);
 
-//logic for finding to subarray of size k in given array
+logic for finding to subarray of size k in given array
 for(int i=0;i<=size-k;i++){
     for(int j=i;j<k+i;j++){
         printf("%d\t",a[j]);
@@ -1130,7 +1213,7 @@ for(int i=0;i<size;i++){
 
 return 0;
 }
-
+/*
 ------------------------------------------------------------------------------------------------------------------------------------------
 Q:32 remove all duplicate from unsorted array using set data structure  given an unsorted array of integers print the array after removing the
 duplicate element from it .we need to print distict array elements according to their first occurrence
@@ -1172,7 +1255,7 @@ for(int i=0;i<=end;i++){
 
 return 0;
 }
-
+/*
 ---------------------------------------------------------------------------------------------------------------------------------------------
 Q 33: Write a c program for a 2d array of size 3 *3 and print the matix
 
@@ -1202,9 +1285,9 @@ for(int i=0;i<3;i++){
 
 return 0;
 }
+/*
 -------------------------------------------------------------------------------------------------------------------------------------------
 Q 34: Addition of two matrix
-
 
 
 #include<stdio.h>
@@ -1251,7 +1334,7 @@ for(int i=0;i<3;i++){
 
 return 0;
 }
-
+/*
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1506,7 +1589,6 @@ return 0;
 
 Q:38 sum of right diagonals in  2*2
 
-
 #include<stdio.h>
 int main(){
 
@@ -1542,7 +1624,7 @@ printf("sum=%d",sum);
 return 0;
 }
 
-
+/*
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Q 39 Sum of left diagonal of matrix 3*3
@@ -1685,7 +1767,7 @@ for(int i=0;i<3;i++){
 }
 for(int i=0;i<3;i++){
     for(int j=0;j<3;j++){
-        if(i>0&&j<i){
+        if(j<i){
                 a[i][j]=0;
             printf("%d",a[i][j]);
         }
@@ -1702,6 +1784,7 @@ for(int i=0;i<3;i++){
 return 0;
 }
 
+/*
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 Q :42 upper triangular of given matrix is zero
@@ -1743,6 +1826,7 @@ for(int i=0;i<3;i++){
 
 return 0;
 }
+/*
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 Q:43 determinant of matrix
@@ -1807,7 +1891,6 @@ else{
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Q 45: equality of matrix
-
 #include<stdio.h>
 
 int main(){
@@ -1833,7 +1916,7 @@ for(int i=0;i<3;i++){
     }
     printf("\n");
 }
-
+int flag=0;
 printf("The 2nd matrix is:\n");
 for(int i=0;i<3;i++){
     for(int j=0;j<3;j++){
@@ -1844,13 +1927,14 @@ for(int i=0;i<3;i++){
 int count =0;
 for(int i=0;i<3;i++){
     for(int j=0;j<3;j++){
-        if(a[i][j]==b[i][j]){
-            count++;
+        if(a[i][j]!=b[i][j]){
+            flag =1;
+            break;
         }
     }
 
 }
-if(count==9){
+if(!flag){
     printf("matrix are equal");
 }
 else{
@@ -1858,6 +1942,8 @@ else{
 }
 
 }
+
+/*
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 Q 46:identity matix
@@ -1876,7 +1962,7 @@ int main()
             scanf("%d",&a[i][j]);
         }
     }
-    int count =0;
+    int count =0,flag=0;
     for(int i=0; i<3; i++)
     {
         for(int j=0; j<3; j++)
@@ -1885,14 +1971,29 @@ int main()
             {
                 if(a[i][j])
                 {
-                    count ++;
+                    continue;
+                }
+                else {
+                   flag=1;
+                   break;
                 }
 
+            }
+            else{
+                if(a[i][j]==0){
+                    continue;
+
+                }
+                else{
+                         flag=1;
+                    break;
+
+                }
             }
         }
 
     }
-    if(count ==3)
+    if(flag==0)
     {
         printf("identy\n");
     }
@@ -1914,7 +2015,29 @@ int main()
 
 }
 
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
